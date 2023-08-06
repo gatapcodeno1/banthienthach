@@ -48,8 +48,9 @@ public class ItemLooter : InventoryAbstract
         ItemPickupAble itemPickupAble = other.GetComponent<ItemPickupAble>();
         if (itemPickupAble == null) return;
 
-        ItemCode itemCode = itemPickupAble.GetItemCode();
-        if(inventory.AddItem(itemCode, 1))
+        Debug.Log(other.name);
+        ItemInventory itemInventory = itemPickupAble.itemCtrl.itemInventory;
+        if(inventory.AddItem(itemInventory))
         {
             itemPickupAble.Picked();
         }

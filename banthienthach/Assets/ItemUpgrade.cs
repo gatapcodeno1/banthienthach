@@ -11,6 +11,7 @@ public class ItemUpgrade : InventoryAbstract
     {
         base.Start();
         Invoke("Test", 2);
+        Invoke("Test", 3);
     }
 
     protected virtual void Test()

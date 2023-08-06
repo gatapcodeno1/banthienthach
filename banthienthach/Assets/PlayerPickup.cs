@@ -9,7 +9,8 @@ public class PlayerPickup : PlayerAbstract
         Debug.Log("ItemPickup");
 
         ItemCode itemCode = itemPickupAble.GetItemCode();
-        if (this.playerCtr.CurrentShip.inventory.AddItem(itemCode, 1))
+        ItemInventory itemInventory = itemPickupAble.itemCtrl.itemInventory;
+        if (this.playerCtr.CurrentShip.inventory.AddItem(itemInventory))
         {
             itemPickupAble.Picked();
         }

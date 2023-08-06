@@ -1,4 +1,8 @@
-﻿public enum ItemCode
+﻿using System;
+using System.Diagnostics;
+using UnityEngine;
+
+public enum ItemCode
 {
     NoItem = 0,
     IronOre = 1,
@@ -7,4 +11,22 @@
     WoodSword = 4,
 
 
+}
+
+public class ItemCodeParse
+{
+
+    public static ItemCode FromString(string itemName)
+    {
+        try
+        {
+            return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
+        }
+        catch (ArgumentException e)
+        {
+            UnityEngine.Debug.LogError(e.Message);
+            return ItemCode.NoItem;
+        }
+
+    }
 }

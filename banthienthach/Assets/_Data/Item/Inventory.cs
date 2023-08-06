@@ -11,10 +11,34 @@ public class Inventory : DatMonoBehaviour
     protected override void Start()
     {
         base.Start();
+        this.AddItem(ItemCode.WoodSword, 2);    
+        this.AddItem(ItemCode.GoldOre, 20);
+        this.AddItem(ItemCode.IronOre, 20);
+    }
+
+    public virtual bool AddItem(ItemInventory itemInventory)
+    {
+
         
-        this.AddItem(ItemCode.WoodSword, 3);
-        this.AddItem(ItemCode.IronOre, 21);
-        this.AddItem(ItemCode.GoldOre, 22);
+        int addCount = itemInventory.itemCount;
+        ItemProfileSO itemProfile = itemInventory.itemProfile;
+        ItemCode itemCode = itemProfile.itemCode;
+        ItemType itemType = itemProfile.itemType;
+
+        if (itemType == ItemType.Equipment) return this.AddEquipment(itemInventory);
+
+
+        return this.AddItem(itemCode, addCount);
+
+        
+    }
+
+
+    public virtual bool AddEquipment(ItemInventory itemInventory)
+    {
+        if (this.IsInventoryFull()) return false;
+        this.items.Add(itemInventory);
+        return true;
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
@@ -23,7 +47,7 @@ public class Inventory : DatMonoBehaviour
 
         ItemInventory itemExist;
 
-        for (int i = 0; i < maxSlot; i++)
+        for (int i = 0 ; i < maxSlot ; i++ )
         {
             itemExist = this.GetItemNotFullStack(itemCode);
 
@@ -34,6 +58,7 @@ public class Inventory : DatMonoBehaviour
                 if (this.IsInventoryFull()) return false;
 
                 this.items.Add(itemExist);
+                addCount--;
             }
 
             int mn = Mathf.Min(addCount, GetMaxStack(itemExist) - itemExist.itemCount);
@@ -71,7 +96,7 @@ public class Inventory : DatMonoBehaviour
     public virtual bool ItemCheck(ItemCode itemCode , int numberCheck)
     {
         int totalCount = this.ItemTotalCount(itemCode);
-        return totalCount > numberCheck;
+        return totalCount >= numberCheck;
     }
 
     public virtual int ItemTotalCount(ItemCode itemCode)
@@ -143,7 +168,8 @@ public class Inventory : DatMonoBehaviour
         ItemInventory itemInventory = new ItemInventory
         {
             itemProfile = itemProfile,
-            maxStack = itemProfile.defaultMaxStack
+            maxStack = itemProfile.defaultMaxStack,
+            
         };
         return itemInventory;
     }

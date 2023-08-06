@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03fda86ea5981734b8f06ea66b59e838, type: 3}
-  m_Name: Sword
+  m_Name: WoodSword
   m_EditorClassIdentifier: 
   itemCode: 4
   itemType: 2
   itemName: WoodSword
   defaultMaxStack: 1
   upgradeLevels:
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 837e61220b47cf54bbdee0b2125cdced, type: 2}
+      itemCount: 10
+    - itemProfile: {fileID: 11400000, guid: 2333cfa55cdfc8a4697545ee85569868, type: 2}
+      itemCount: 10
   - ingredients:
     - itemProfile: {fileID: 11400000, guid: 837e61220b47cf54bbdee0b2125cdced, type: 2}
       itemCount: 10
