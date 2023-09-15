@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShipCtrl : AbilityObjectCtrl
+{
+    [Header("ShipCtrl")]
+    public Inventory inventory;
+
+    private static ShipCtrl instance;
+
+    public static ShipCtrl Instance => instance;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        ShipCtrl.instance = this;  
+        this.inventory = GetComponentInChildren<Inventory>();
+    }
+
+    protected override string GetObjectTypeString()
+    {
+        return ObjectType.Ship.ToString();
+    }
+}
