@@ -17,8 +17,17 @@ public class CameraHolder : DatMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.target = GameObject.Find("Ship").transform;
+        this.LoadTarget();  
+        
     }
+
+    protected virtual void LoadTarget()
+    {
+        if (this.target != null) return;
+        this.target = GameObject.Find("Ship").transform;
+        Debug.Log(transform.name + "LoadTarget ", gameObject);
+    }
+
 
     protected virtual void Following()
     {
@@ -26,6 +35,16 @@ public class CameraHolder : DatMonoBehaviour
        
         transform.position = Vector3.Lerp(transform.position,this.target.position,Time.fixedDeltaTime * this.speed);
         
+    }
+
+    public virtual void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
+    public virtual void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
 }

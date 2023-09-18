@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: ShootAble Object
   objectType: 4
-  hpMax: 1000
+  hpMax: 10000
   dropList: []

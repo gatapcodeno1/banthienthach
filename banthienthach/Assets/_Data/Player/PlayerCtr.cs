@@ -27,7 +27,7 @@ public class PlayerCtr : DatMonoBehaviour
     {
         base.LoadComponents();
         this.LoadPlayerPickup();
-
+        this.LoadCurrentShip();
     }
 
     protected virtual void LoadPlayerPickup()
@@ -37,6 +37,12 @@ public class PlayerCtr : DatMonoBehaviour
         Debug.Log(transform.name + ": LoadPlayerPickup", gameObject);
     }
 
+    protected virtual void LoadCurrentShip()
+    {
+        if (this.currentShip != null) return;
+        this.currentShip = GameObject.Find("Ship").GetComponent<ShipCtrl>();
+        Debug.Log(transform.name + ": LoadCurrentShip", gameObject);
+    }
 
 
 }

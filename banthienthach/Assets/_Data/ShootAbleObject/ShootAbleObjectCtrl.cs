@@ -25,6 +25,8 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
     [SerializeField] protected ShipFollowTarget shipFollowTarget;
     public ShipFollowTarget ShipFollowTarget => shipFollowTarget;
 
+    [SerializeField] protected ShootAbleObjectDameReceive shootAbleObjectDameReceive;
+    public ShootAbleObjectDameReceive ShootAbleObjectDameReceive => shootAbleObjectDameReceive;
 
     protected override void LoadComponents()
     {
@@ -35,6 +37,7 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
         this.LoadObjMovement();
         this.LoadObjLookAtTarget();
         this.LoadShipFollowTarget();
+        this.LoadshootAbleObjectDameReceive();
     }
 
     protected virtual void LoadModel()
@@ -42,6 +45,14 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
         if (this.model != null) return;
         this.model = this.transform.Find("Model");
         Debug.Log(transform.name +": LoadModel",gameObject);
+    }
+
+    protected virtual void LoadshootAbleObjectDameReceive()
+    {
+        if (this.shootAbleObjectDameReceive != null) return;
+        this.shootAbleObjectDameReceive = GetComponentInChildren<ShootAbleObjectDameReceive>();
+
+        Debug.Log(transform.name + ": LoadshootAbleObjectDameReceive", gameObject);
     }
 
     protected virtual void LoadObjLookAtTarget()

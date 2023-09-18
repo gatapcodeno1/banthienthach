@@ -44,18 +44,36 @@ public class ItemDropSpawner : Spawner
     public virtual List<ItemDropRate> DropItems(List<ItemDropRate> items ){
         List<ItemDropRate> droppedItems = new List<ItemDropRate>();
         float rate,itemRate;
+        int itemDropMore;
         foreach(ItemDropRate item in items)
         {
             rate = UnityEngine.Random.Range(0, 1f);
-            itemRate = item.dropRate/ 100000 * this.gameDropRate;
-            if (rate < itemRate) 
+            itemRate = item.dropRate/ 100000f * this.GameDropRate();
+            itemDropMore = Mathf.FloorToInt(itemRate);
+
+            if (itemDropMore > 0)
             {
+                itemRate -= itemDropMore;
+                for (int i = 0; i < itemDropMore; i++)
+                {
+                    droppedItems.Add(item);
+                }
+            }
+
+            if (rate <= itemRate) 
+            {
+                
                 droppedItems.Add(item);
             }
         }
         return droppedItems;
     }
     
+    protected virtual float GameDropRate()
+    {
+        float dropRateFromItems = 0f;
+        return this.gameDropRate + dropRateFromItems;
+    }
 
     public virtual Transform DropFromInventory(ItemInventory itemInventory, Vector3 pos , Quaternion rot) {
         ItemCode itemCode = itemInventory.itemProfile.itemCode;

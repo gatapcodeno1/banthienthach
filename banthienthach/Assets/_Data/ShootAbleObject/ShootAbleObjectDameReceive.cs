@@ -50,6 +50,8 @@ public class ShootAbleObjectDameReceive : DameReceive
         return FXSpawner.smoke1;
     }
 
+
+
     public override void Reborn()
     {
         this.hpMax = this.ShootAbleObjectCtrl.ShootAbleObjectSO.hpMax;
