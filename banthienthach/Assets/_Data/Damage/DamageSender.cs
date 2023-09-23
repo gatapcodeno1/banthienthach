@@ -30,7 +30,8 @@ public class DamageSender : DatMonoBehaviour
     public virtual void Send(DameReceive damereceive)
     {
         damereceive.Deduct(this.damage);
-        this.DestroyObj();
+        this.transform.parent.gameObject.SetActive(false);
+        //this.DestroyObj();
     }
 
     public virtual void DestroyObj() {

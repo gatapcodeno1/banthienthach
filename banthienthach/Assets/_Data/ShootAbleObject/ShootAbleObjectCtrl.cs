@@ -28,6 +28,9 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
     [SerializeField] protected ShootAbleObjectDameReceive shootAbleObjectDameReceive;
     public ShootAbleObjectDameReceive ShootAbleObjectDameReceive => shootAbleObjectDameReceive;
 
+    [SerializeField] protected ShipShootByEnter shipShootByEnter;
+    public ShipShootByEnter ShipShootByEnter => shipShootByEnter;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -38,6 +41,14 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
         this.LoadObjLookAtTarget();
         this.LoadShipFollowTarget();
         this.LoadshootAbleObjectDameReceive();
+        this.LoadShipShootByEnter();
+    
+    }
+
+
+    protected virtual void LoadShipShootByEnter()
+    {
+        this.shipShootByEnter = GetComponentInChildren<ShipShootByEnter>();
     }
 
     protected virtual void LoadModel()

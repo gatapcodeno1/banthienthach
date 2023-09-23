@@ -14,6 +14,11 @@ public class InputManager : MonoBehaviour
 
     public  Vector3 MousePosition { get => mousePosition; }
 
+    [SerializeField] protected float onHoldRightMouse;
+    public float OnHoldRightMouse => onHoldRightMouse;
+
+
+
     protected Vector4 direction;
 
     public Vector4 Direction => direction;
@@ -39,6 +44,7 @@ public class InputManager : MonoBehaviour
     {
         this.GetOnFiring();
         this.GetDirectionByKeyDown();
+        this.GetOnHoldRightMouse();
     }                               
 
     protected virtual void GetMousePos()
@@ -71,6 +77,11 @@ public class InputManager : MonoBehaviour
     protected virtual void GetOnFiring()
     {
         this.onFiring = Input.GetAxis("Fire1");
+    }
+
+    protected virtual void GetOnHoldRightMouse()
+    {
+        this.onHoldRightMouse = Input.GetAxis("Submit");
     }
     
    

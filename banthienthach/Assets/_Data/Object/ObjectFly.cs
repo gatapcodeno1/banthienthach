@@ -10,7 +10,7 @@ public class ObjectFly : DatMonoBehaviour
     public virtual void FixedUpdate()
     {
       
-        transform.parent.Translate(this.direction * this.movespeed * Time.deltaTime);
+        //transform.parent.Translate(this.direction);
     }
 
     

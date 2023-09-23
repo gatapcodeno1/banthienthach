@@ -13,25 +13,22 @@ public abstract class ObjShooting : DatMonoBehaviour
     public float timeDelay = 1f;
     public float timeShoot = 0f;
     public bool isShooting = false;
+    
     //public Transform bulletPrefab;
 
-   
 
-    void FixedUpdate()
+
+    void Update()
     {
         this.IsShooting();
         Shooting();
         
 
     }
-    bool b = false;
+    
     protected virtual void Shooting()
     {
-
-       
-
-        
-
+        bool b = false;
         timeShoot += Time.deltaTime;
         if (isShooting == false) return;
        
@@ -44,36 +41,17 @@ public abstract class ObjShooting : DatMonoBehaviour
             b = true;
             timeShoot = 0;
         }
-
-        
-
         if (b == true)
         {
-
-
-
             Vector3 pos = transform.position;
             quaternion ros = transform.rotation;
             /*  Transform newBullet =  Instantiate(bulletPrefab, pos,ros);*/
             Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bulletTwo,pos, ros );
-            BulletSpawner.Instance.shooter = transform.parent;
-
-            if (newBullet == null)
-            {
-                return;
-            }
-
-         
+            newBullet.GetComponentInChildren<BulletInfo>().SetShooter(transform.parent);
             newBullet.gameObject.SetActive(true);
-            
             b = false;
-
         }
-       
-
-
-
-
+        
     }
 
 

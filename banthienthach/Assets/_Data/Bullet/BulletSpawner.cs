@@ -9,9 +9,9 @@ public class BulletSpawner : Spawner
 
     public static BulletSpawner Instance { get => instance; }
 
-    public Transform shooter;
     
     public static string bulletTwo = "Bullet_2";
+        
     
 
     protected override void Awake()
@@ -21,5 +21,7 @@ public class BulletSpawner : Spawner
         BulletSpawner.instance = this;
 
     }
+
+    
 
 }

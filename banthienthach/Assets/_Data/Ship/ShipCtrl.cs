@@ -11,15 +11,30 @@ public class ShipCtrl : AbilityObjectCtrl
 
     public static ShipCtrl Instance => instance;
 
+    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        ShipCtrl.instance = this;
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        ShipCtrl.instance = this;  
-        this.inventory = GetComponentInChildren<Inventory>();
+        this.LoadInventory();
+        
+
+
     }
 
     protected override string GetObjectTypeString()
     {
         return ObjectType.Ship.ToString();
     }
+    protected virtual void LoadInventory()
+    {
+        this.inventory = GetComponentInChildren<Inventory>();
+    }
+
+   
 }

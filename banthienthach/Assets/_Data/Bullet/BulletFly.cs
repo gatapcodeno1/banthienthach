@@ -15,7 +15,11 @@ public class BulletFly : ObjectFly
 
     public override void FixedUpdate()
     {
+        
         transform.parent.Translate(this.direction * this.movespeed * Time.deltaTime);
+        
     }
+
+
 
 }

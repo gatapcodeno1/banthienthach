@@ -62,6 +62,7 @@ public abstract class Spawner : DatMonoBehaviour
         }
         Transform newPrefab =  Instantiate(prefab, spawnpos, rotation);
         newPrefab.name = prefab.name;
+        
         return newPrefab;
     }
 

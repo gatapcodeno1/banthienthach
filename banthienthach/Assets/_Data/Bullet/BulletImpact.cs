@@ -41,9 +41,9 @@ public class BulletImpact : BulletAbtract
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        
-        if(other.transform.parent == BulletSpawner.Instance.shooter)  return; 
-
+        BulletInfo par = transform.parent.GetComponentInChildren<BulletInfo>();
+        if(other.transform.parent == par.GetShooter())  return;
+        //Debug.Log(other.transform.parent + " andddddddddddddd " + BulletInfo.Instance.GetShooter());
         this.bulletCtrl.damageSender.Send(other.transform);
         
         
