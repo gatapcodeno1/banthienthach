@@ -17,7 +17,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] protected float onHoldRightMouse;
     public float OnHoldRightMouse => onHoldRightMouse;
 
-
+    [SerializeField] protected float onTouchK;
+    public float OnTouchK => onTouchK;
 
     protected Vector4 direction;
 
@@ -45,6 +46,7 @@ public class InputManager : MonoBehaviour
         this.GetOnFiring();
         this.GetDirectionByKeyDown();
         this.GetOnHoldRightMouse();
+        this.GetOnTouchK();
     }                               
 
     protected virtual void GetMousePos()
@@ -83,7 +85,15 @@ public class InputManager : MonoBehaviour
     {
         this.onHoldRightMouse = Input.GetAxis("Submit");
     }
-    
-   
+    protected virtual void GetOnTouchK()
+    {
+        
+        this.onTouchK = Input.GetKeyDown(KeyCode.K) ? 1 : 0;
+        if(onTouchK == 1)
+        {
+            Debug.Log("K"); 
+        }
+    }
+
 
 }

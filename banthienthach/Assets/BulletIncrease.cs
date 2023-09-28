@@ -28,13 +28,12 @@ public class BulletIncrease : DatMonoBehaviour
             return;
         }
 
-        if (transform.parent.localScale.x > this.maxLocalScale)
+        if (transform.parent.localScale.x > this.maxLocalScale || Vector3.Distance(transform.parent.position , PlayerCtr.Instance.currentShip.transform.position ) > 1f)
         {
             bulletCtrl.BulletFly.gameObject.SetActive(true);
             shipCtrl.ObjShooting.gameObject.SetActive(true);
             shipCtrl.ObjMovement.gameObject.SetActive(true);
             shipCtrl.ObjLookAtTarget.gameObject.SetActive(true);
-
             return;
         }
 
