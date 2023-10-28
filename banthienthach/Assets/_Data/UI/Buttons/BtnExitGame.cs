@@ -8,6 +8,7 @@ public class BtnExitGame : BtnBase
     protected override void OnClick()
     {
 
+
         EditorApplication.ExitPlaymode();
         Application.Quit();
         

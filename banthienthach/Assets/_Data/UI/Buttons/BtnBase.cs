@@ -18,6 +18,7 @@ public abstract class BtnBase : DatMonoBehaviour
 
     protected virtual void AddOnClickEvent()
     {
+        
         this.button.onClick.AddListener(this.OnClick);
     }
 
