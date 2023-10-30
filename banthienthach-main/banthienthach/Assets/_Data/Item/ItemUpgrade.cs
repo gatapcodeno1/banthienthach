@@ -16,7 +16,7 @@ public class ItemUpgrade : InventoryAbstract
 
     protected virtual void Test()
     {
-        this.UpgradeItem(0);
+        //this.UpgradeItem(0);
     }
 
 

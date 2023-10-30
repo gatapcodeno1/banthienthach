@@ -28,9 +28,11 @@ public class HPBarSpawner : Spawner
             Debug.LogWarning("Prefab not found" + prefab);
             return null;
         }
-        Transform newPrefab = Instantiate(prefab, spawnpos, rotation);
-        newPrefab.name = prefab.name;
-        newPrefab.parent = holder;
+        Transform newPrefab = GetObjectFromPool(prefab);
+        newPrefab.transform.rotation = rotation;
+        newPrefab.transform.position = spawnpos;
+        newPrefab.SetParent(this.holder);
+
         return newPrefab;
     }
 

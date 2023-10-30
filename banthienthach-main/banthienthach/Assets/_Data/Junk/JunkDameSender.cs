@@ -8,13 +8,16 @@ public class JunkDameSender : DamageSender
     {
         
         if (other.transform.parent != PlayerCtr.Instance.currentShip.transform) return;
-        GameObject.Destroy(transform.parent.gameObject);
+        JunkSpawner.Instance.Despawner(transform.parent);
         Transform a = FXSpawner.Instance.Spawn(FXSpawner.smoke1,this.transform.position ,this.transform.rotation);    
         a.gameObject.SetActive(true);
         Send(other.transform);
         
-    }
-    
 
-    
+        
+        
+    }
+
+
+
 }

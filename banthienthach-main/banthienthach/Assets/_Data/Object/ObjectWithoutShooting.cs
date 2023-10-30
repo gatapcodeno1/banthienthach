@@ -46,6 +46,7 @@ public class ObjectWithoutShooting : ShootAbleObjectAbstract,IObjAppearObserver
         this.shootAbleObjectCtrl.ObjShooting.gameObject.SetActive(true);
         this.shootAbleObjectCtrl.ObjLookAtTarget.gameObject.SetActive(true);
         this.shootAbleObjectCtrl.ShipFollowTarget.gameObject.SetActive(true);
+        this.shootAbleObjectCtrl.Spawner.Hold(transform.parent);
 
     }
 }

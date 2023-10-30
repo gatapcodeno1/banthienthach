@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class MeteoDestroy : ObjectDestroy
 {
+
     protected override void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, Camera.main.transform.position) > 20f)
+        if (Vector3.Distance(transform.position, Camera.main.transform.position) > 30f)
         {
-            GameObject.Destroy(transform.parent.gameObject);
+            JunkSpawner.Instance.Despawner(transform.parent);
         }
 
+
     }
+
 }

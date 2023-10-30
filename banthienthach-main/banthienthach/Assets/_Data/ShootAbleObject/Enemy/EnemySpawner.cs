@@ -54,5 +54,5 @@ public class EnemySpawner : Spawner
         newHPBar.gameObject.SetActive(true);
 
     }
-
+    
 }

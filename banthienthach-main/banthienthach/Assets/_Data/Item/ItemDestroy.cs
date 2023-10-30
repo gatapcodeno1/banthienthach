@@ -9,7 +9,7 @@ public class ItemDestroy : ObjectDestroy
         
         if (Vector3.Distance(transform.position, Camera.main.transform.position) > 20f)
         {
-            GameObject.Destroy(this.transform.parent.gameObject);
+            ItemDropSpawner.Instance.Despawner(this.transform.parent);
         }
 
     }

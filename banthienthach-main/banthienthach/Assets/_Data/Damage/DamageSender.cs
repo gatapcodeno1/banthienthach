@@ -14,13 +14,16 @@ public class DamageSender : DatMonoBehaviour
         this.CreateFXImpact();
 
     }
-
+    Transform a;
     protected virtual void CreateFXImpact()
     {
         string fxName = this.GetImpactFX();
-        Transform a = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
+        a = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
         a.gameObject.SetActive(true);
+       
     }
+
+   
     protected virtual string GetImpactFX()
     {
         return FXSpawner.flash1;
@@ -30,14 +33,10 @@ public class DamageSender : DatMonoBehaviour
     public virtual void Send(DameReceive damereceive)
     {
         damereceive.Deduct(this.damage);
-        this.transform.parent.gameObject.SetActive(false);
-        //this.DestroyObj();
-    }
-
-    public virtual void DestroyObj() {
-        Destroy(transform.parent.gameObject);
         
     }
+
+    
 
 
 }

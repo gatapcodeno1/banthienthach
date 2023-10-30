@@ -58,7 +58,7 @@ public class HPBar : DatMonoBehaviour
         bool isDead = this.shootAbleObjectCtrl.ShootAbleObjectDameReceive.IsDead();
         if (isDead)
         {
-            GameObject.Destroy(gameObject);
+            HPBarSpawner.Instance.Despawner(transform);
             return;
         }
 

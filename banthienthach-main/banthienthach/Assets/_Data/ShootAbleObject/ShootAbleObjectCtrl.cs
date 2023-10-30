@@ -31,6 +31,9 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
     [SerializeField] protected ShipShootByEnter shipShootByEnter;
     public ShipShootByEnter ShipShootByEnter => shipShootByEnter;
 
+    [SerializeField] protected Spawner spawner;
+    public Spawner Spawner => spawner;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -42,9 +45,15 @@ public abstract class ShootAbleObjectCtrl : DatMonoBehaviour
         this.LoadShipFollowTarget();
         this.LoadshootAbleObjectDameReceive();
         this.LoadShipShootByEnter();
-    
+        this.LoadSpawner();
     }
 
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = transform.parent?.parent?.GetComponent<Spawner>();
+        Debug.Log(transform.name + ": LoadSpawner", gameObject);
+    }
 
     protected virtual void LoadShipShootByEnter()
     {

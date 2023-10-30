@@ -37,7 +37,7 @@ public class ItemPickupAble : ItemAbstract
 
     public virtual void Picked()
     {
-        GameObject.Destroy(transform.parent.gameObject);
+        ItemDropSpawner.Instance.Despawner(transform.parent);
     }
 
     public virtual void OnMouseDown()

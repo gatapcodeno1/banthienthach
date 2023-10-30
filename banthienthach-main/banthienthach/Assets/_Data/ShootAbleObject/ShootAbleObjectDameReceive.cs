@@ -25,7 +25,7 @@ public class ShootAbleObjectDameReceive : DameReceive
     protected override void Ondead()
     {
         transform.parent.gameObject.SetActive(false);
-        GameObject.Destroy(transform.parent.gameObject);
+        EnemySpawner.Instance.Despawner(transform.parent);
         this.OndeadFX();
         this.OndeadDrop();
 

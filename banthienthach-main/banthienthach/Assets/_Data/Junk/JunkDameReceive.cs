@@ -24,7 +24,7 @@ public class JunkDameReceive : DameReceive
 
     protected override void Ondead()
     {
-        GameObject.Destroy(transform.parent.gameObject);
+        JunkSpawner.Instance.Despawner(transform.parent);
         this.OndeadFX();
         this.OndeadDrop();
 

@@ -11,7 +11,7 @@ public class Inventory : DatMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.WoodSword, 2);    
+        this.AddItem(ItemCode.WoodSword, 7);    
         this.AddItem(ItemCode.GoldOre, 20);
         this.AddItem(ItemCode.IronOre, 20);
     }
@@ -167,6 +167,7 @@ public class Inventory : DatMonoBehaviour
     {
         ItemInventory itemInventory = new ItemInventory
         {
+            itemId = ItemInventory.RandomId(),
             itemProfile = itemProfile,
             maxStack = itemProfile.defaultMaxStack,
             
