@@ -15,6 +15,7 @@ public class UIInventoryCtrl : DatMonoBehaviour
     [SerializeField] protected Transform content;
     public Transform Content => content;
 
+    public ItemInventory item;
 
     protected override void LoadComponents()
     {
@@ -55,5 +56,20 @@ public class UIInventoryCtrl : DatMonoBehaviour
 
 
     }
+    
+
+    public void RemoveItem(ItemCode itemCode , int sl)
+    {
+        
+        Debug.Log("dang dung ne");
+        ShipCtrl.Instance.inventory.DeductItem(itemCode, sl);
+        
+        
+
+    }
+
+
+
+
 
 }

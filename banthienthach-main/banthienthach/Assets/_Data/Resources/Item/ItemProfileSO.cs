@@ -11,6 +11,9 @@ public class ItemProfileSO : ScriptableObject
     public int defaultMaxStack = 7;
     public Sprite sprite;
     public List<ItemRecipe> upgradeLevels;
+    public float HpIncrease = 5f;
+    public float SpeedIncrease = 0.01f;
+    public float SpeedAttackIncrease = 1f;
    
 
 

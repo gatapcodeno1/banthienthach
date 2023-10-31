@@ -69,6 +69,7 @@ public abstract class Spawner : DatMonoBehaviour
 
     public virtual void Despawner(Transform obj)
     {
+        if(this.poolObjects.Contains(obj)) return;  
         this.poolObjects.Add(obj);
         obj.gameObject.SetActive(false);
     }
@@ -131,7 +132,7 @@ public abstract class Spawner : DatMonoBehaviour
 
     public virtual Transform GetRandomPrefab()
     {        
-        return prefabs[UnityEngine.Random.Range(0,prefabs.Count - 1)];
+        return prefabs[UnityEngine.Random.Range(0,prefabs.Count)];
     }
     
 }

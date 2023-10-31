@@ -14,6 +14,7 @@ public class Inventory : DatMonoBehaviour
         this.AddItem(ItemCode.WoodSword, 7);    
         this.AddItem(ItemCode.GoldOre, 20);
         this.AddItem(ItemCode.IronOre, 20);
+        this.SortItem();
     }
 
     public virtual bool AddItem(ItemInventory itemInventory)
@@ -46,6 +47,7 @@ public class Inventory : DatMonoBehaviour
         ItemProfileSO itemProfile = this.GetItemProfile(itemCode);
 
         ItemInventory itemExist;
+        this.SortItem();
 
         for (int i = 0 ; i < maxSlot ; i++ )
         {
@@ -182,6 +184,22 @@ public class Inventory : DatMonoBehaviour
         {
             itemInventory = items[i];
             if (itemInventory.itemCount == 0) this.items.RemoveAt(i); 
+        }
+    }
+
+    protected virtual void SortItem()
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            for(int j = 0; j < items.Count; j++)
+            {
+                if (string.Compare(items[i].itemId, items[i].itemId) == 1)
+                {
+                    var a = items[i];
+                    items[i] = items[j];
+                    items[j] = a;
+                }
+            }
         }
     }
 

@@ -60,9 +60,9 @@ public class UIInventory : UIInventoryAbstract
     }
     protected virtual void ShowItems()
     {
-        this.ClearItems();
+        
         if (!this.isOpen) return;
-
+        this.ClearItems();
         List<ItemInventory> items = PlayerCtr.Instance.currentShip.inventory.items;
         UIInventorySpawner spawner = this.inventoryCtrl.UIInventorySpawner;
 

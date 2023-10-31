@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WormHole : DatMonoBehaviour
+public class WormHole : MonoBehaviour
 {
-
     protected string sceneName = "GamePlay";
 
     protected virtual void OnMouseDown()
@@ -16,5 +15,4 @@ public class WormHole : DatMonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    
 }

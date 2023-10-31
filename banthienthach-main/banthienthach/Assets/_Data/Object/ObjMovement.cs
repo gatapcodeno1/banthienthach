@@ -26,7 +26,10 @@ public class ObjMovement : DatMonoBehaviour
 
     }
 
-
+    public virtual void IncreaseSpeed(float Speed)
+    {
+        this.speed += Speed;
+    }
 
     public virtual void SetSpeed(float Speed)
     {
@@ -41,6 +44,9 @@ public class ObjMovement : DatMonoBehaviour
         transform.parent.position = newPos;
     }
 
-    
+    public virtual float GetSpeed()
+    {
+        return this.speed;
+    }
 
 }

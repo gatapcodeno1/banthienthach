@@ -27,7 +27,7 @@ public class ShootAbleObjectDameReceive : DameReceive
         EnemySpawner nowSpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         nowSpawner.Despawner(transform.parent);
         
-        Debug.Log("chet rui ne");
+        
         this.OndeadFX();
         this.OndeadDrop();
         
@@ -56,6 +56,7 @@ public class ShootAbleObjectDameReceive : DameReceive
 
     public override void Reborn()
     {
+        
         this.hpMax = this.ShootAbleObjectCtrl.ShootAbleObjectSO.hpMax;
         base.Reborn();
     }

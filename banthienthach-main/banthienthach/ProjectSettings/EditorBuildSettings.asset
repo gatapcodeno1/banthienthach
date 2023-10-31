@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/GamePlay.unity
+    guid: 128852471d22f57479607cff00290360
+  - enabled: 1
+    path: Assets/Scenes/GamePlay_Super_Hard.unity
+    guid: b00b596033dcfad4abefc536f55ae4f0
+  - enabled: 1
+    path: Assets/Scenes/GamePlay_Hard.unity
+    guid: 3a83cb742fb69304280d0f1e7c1cd316
+  - enabled: 1
+    path: Assets/Scenes/New Scene.unity
+    guid: 6770b196b01484f4fb6b96a3d593f28f
   m_configObjects: {}

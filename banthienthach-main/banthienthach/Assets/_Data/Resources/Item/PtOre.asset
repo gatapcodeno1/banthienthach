@@ -18,3 +18,6 @@ MonoBehaviour:
   defaultMaxStack: 7
   sprite: {fileID: 21300000, guid: ef03e9b887a0ff54a86ada52b3c7bc83, type: 3}
   upgradeLevels: []
+  HpIncrease: 5
+  SpeedIncrease: 0.001
+  SpeedAttackIncrease: 0.01
