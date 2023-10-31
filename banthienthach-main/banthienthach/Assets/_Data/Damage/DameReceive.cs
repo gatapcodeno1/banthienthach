@@ -11,6 +11,8 @@ public abstract class DameReceive : DatMonoBehaviour
     public int hp = 1;
     public int hpMax = 2;
     public bool isDead = false;
+    [SerializeField] Spawner spawner;
+    protected Spawner Spawner => spawner;
     
     protected override void OnEnable()
     {
@@ -27,8 +29,18 @@ public abstract class DameReceive : DatMonoBehaviour
     {
         base.LoadComponents();
         this.LoadCollider();
+        this.LoadSpawner();
         
     }
+
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = transform.parent?.parent?.parent?.GetComponent<Spawner>();
+        Debug.Log(transform+"LoadSpawner",gameObject);
+        
+    }
+
 
     protected virtual void LoadCollider()
     {

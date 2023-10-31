@@ -24,11 +24,13 @@ public class ShootAbleObjectDameReceive : DameReceive
 
     protected override void Ondead()
     {
-        transform.parent.gameObject.SetActive(false);
-        EnemySpawner.Instance.Despawner(transform.parent);
+        EnemySpawner nowSpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        nowSpawner.Despawner(transform.parent);
+        
+        Debug.Log("chet rui ne");
         this.OndeadFX();
         this.OndeadDrop();
-
+        
     }
 
     protected virtual void OndeadDrop()

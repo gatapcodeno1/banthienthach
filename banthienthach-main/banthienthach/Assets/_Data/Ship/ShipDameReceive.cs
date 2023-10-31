@@ -22,7 +22,7 @@ public class ShipDameReceive : DameReceive
 
     protected override void Ondead()
     {
-        GameObject.Destroy(transform.parent.gameObject);
+        Spawner.Despawner(transform.parent);
     }
 
     public override void Deduct(int deduct)
